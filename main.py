@@ -1,10 +1,16 @@
-import openpyxl
-# import pandas as pd
+import pandas as pd
 
-df = openpyxl.load_workbook('sample.xlsx')
 
-ws = df["sheet1"]
+print("編集対象のファイル名指定してください")
+target_file = input('')
 
-ws2 = df.worksheets[0]
+with pd.ExcelFile(target_file) as xls:
+    sheets = xls.sheet_names
 
-print(ws)
+    print("どのシートを編集しますか？")
+    print(sheets)
+    sheet_num = int(input(''))
+
+    edit_target = xls.parse(sheets[sheet_num])
+
+    print(edit_target)
