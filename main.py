@@ -17,6 +17,8 @@ with pd.ExcelFile(target_file) as xls:
     print(sheets)
     sheet_num = int(input(''))
 
+    #
+
     edit_target = xls.parse(sheets[sheet_num])
 
     add_column(edit_target, "好物")
